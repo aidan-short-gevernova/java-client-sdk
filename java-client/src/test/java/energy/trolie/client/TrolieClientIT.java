@@ -1902,7 +1902,7 @@ public class TrolieClientIT {
 	private void writeMonitoringSet(JsonGenerator json, String id) throws IOException {
 		var source = DataProvenance.builder().provider(id).lastUpdated(
 				Instant.now()).originId(id).build();
-		MonitoringSet monitoringSet = new MonitoringSet(source, id, "This is test SDK", List.of());
+		MonitoringSet monitoringSet = new MonitoringSet("monitoringSetName", "This is test SDK", List.of(), source, id);
 		json.writeStartObject();
 		try {
 			json.writeFieldName(TAG_SOURCE);
